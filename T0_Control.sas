@@ -5,19 +5,18 @@
  Created:           February 2022
  Last Updated:  	
 
- Program purpose:	Define physical environment for the NATS 2021 table generation
+ Program purpose:	Define physical environment for the table generation
 
- Inputs:			Cleaned state files, 3 files for each state:
+ Inputs:		Cleaned state files, 3 files for each state:
                       1. Jan-Feb 2020
                       2. Jun-Jul 2020
                       3. Jan-Feb 2021
 
- Outputs:			One Report Excel File for each State requested for this run
+ Outputs:		One Report Excel File for each State requested for this run
 ***********************************************************************************/
 
 /* 2021 -- MULTIPLE STATES IN A LIST */
 %let States=FL IN LA NC NE NV OH TA VT WV;
-            /* FL IN LA NC NE NV OH TA VT WV -- CURRENT SET OF CLEAN STATES */
 
 /* SET ALL=Y TO PRODUCE TABLES FOR ALL REQUESTED STATES COMBINED IN A SEPARATE OUTPUT FILE */        
 %let ALL=Y;
@@ -33,7 +32,7 @@
 
 /* SET PHYSICAL ENVIRONMENT PATHS */
 %let path = <<ROOT NETWORK LOCATION HERE>>
-%let datapath=&path\task 3. state agency data collection;
+%let datapath=&path\data collection;
 %let codepath=&path\SAS Code\Tables;
 %let outputpath=&path\SAS Code\Tables\Output;
 
@@ -41,17 +40,17 @@
 libname OutData "&path\SAS Code\Tables\OutputData";
 
 /* LOCAL AGENCY LOOKUP FILE - CONTAINS LOCAL AGENCY TYPE */
-filename LocAgen1 "\\IPRSRV.ipr.local\DATA\PROJECTS\USDA\FNS\WIC NATS\Table Shells\Westat Data\NATS Survey Data_LA Characteristics.xlsx";
+filename LocAgen1 "&path\LA Characteristics.xlsx";
 
 /* LOCAL AGENCY LOOKUP FILE - CONTAINS LOCAL AGENCY SIZE */
-filename LocAgen2 "\\IPRSRV.ipr.local\DATA\PROJECTS\USDA\FNS\WIC NATS\Table Shells\Local agency caseloads for LAs that completed the survey.xlsx";
+filename LocAgen2 "&path\Local agency caseloads.xlsx";
 
 /* LOCAL AGENCY LOOKUP FILE - CONTAINS LOCAL AGENCY URBANICITY */
-filename LocAgen3 "\\IPRSRV.ipr.local\DATA\PROJECTS\USDA\FNS\WIC NATS\Table Shells\Westat Data\WIC NATS LA Urban_Rural Code for all LAs in 10 selected SAs_UPDATED.xlsx";
+filename LocAgen3 "&path\LAs in 10 selected SAs_UPDATED.xlsx";
 
 /* NUTRITION RISK SPEC (IN XLSX FORMAT) AND WORKSHEETS */
 /* THE SPEC MAINTAINS THE NUTRISK CODES, LABELS, SECTIONS, AND ORDER (IMPLICIT) */
-%let NutRiskPath=\\IPRSRV\DATA\projects\usda\fns\wic NATS\Table Shells;
+%let NutRiskPath=&path\Table Shells;
 %let NutRiskFile=Table shells.xlsx;
 %let numNutRiskWorksheets=5;
 %let NutRiskWorksheet1=2_Anthropometric Risks;
@@ -70,7 +69,7 @@ options formchar='|----|+|---+=|-/\<>';
 ods escapechar = "^";
 
 /* INCLUDE MACRO UTILITY LIBRARY */
-options mprint mautosource sasautos='\\IPRSRV.ipr.local\Data\CORPORATE INFORMATION\Programming Resources\SAS\Macros';
+options mprint mautosource sasautos='&path\SAS\Macros';
 %MPrintOutput(path=&codepath)
 %HTMLOutput(path=&codepath)
 
@@ -82,8 +81,8 @@ options nosource2;
          "&codepath\T0_DataPrep.sas"
          "&codepath\T0_DataPrepTop5.sas"
          "&codepath\T0_DataPrepAll.sas"
-		 "&codepath\T0_formats.sas"
-		 "&codepath\T0_Denominators.sas"
+	   "&codepath\T0_formats.sas"
+	   "&codepath\T0_Denominators.sas"
  		 "&codepath\T0_NutriskSpecPrep.sas"
 		 "&codepath\T0_Frequencies.sas"
 		 "&codepath\T0_RptDSHeader.sas"
