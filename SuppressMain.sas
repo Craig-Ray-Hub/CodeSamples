@@ -29,70 +29,70 @@
 	  %do i=1 %to 3;  /* OVER EACH FILE */
 	    %T0_SuppressSecondaryCol(data=Report_T1,
 	                             VarList=N&i Pct&i,
-							     ObsList=9|10|11|12|13)
+					     ObsList=9|10|11|12|13)
 	  %end;
 
       /* SECONDARY COLUMN, AGE AT CERTIFICATION:  INFANTS */
 	  %do i=1 %to 3;  /* OVER EACH FILE */
 	    %T0_SuppressSecondaryCol(data=Report_T1,
 	                             VarList=N&i Pct&i,
-							     ObsList=15|16|17|18|19)
+					     ObsList=15|16|17|18|19)
 	  %end;
 
       /* SECONDARY COLUMN, AGE AT CERTIFICATION:  CHILDREN */
 	  %do i=1 %to 3;  /* OVER EACH FILE */
 	    %T0_SuppressSecondaryCol(data=Report_T1,
 	                             VarList=N&i Pct&i,
-							     ObsList=21|22|23|24|25)
+					     ObsList=21|22|23|24|25)
 	  %end;
 
       /* SECONDARY COLUMN, AGE AT CERTIFICATION:  CHILDREN */
 	  %do i=1 %to 3;  /* OVER EACH FILE */
 	    %T0_SuppressSecondaryCol(data=Report_T1,
 	                             VarList=N&i Pct&i,
-							     ObsList=21|22|23|24|25)
+		                       ObsList=21|22|23|24|25)
 	  %end;
 
       /* SECONDARY COLUMN, TRIMESTER OF CERTIFICATION TOTALS TO 'PREGNANT WOMEN' */
 	  %do i=1 %to 3;  /* OVER EACH FILE */
 	    %T0_SuppressSecondaryCol(data=Report_T1,
 	                             VarList=N&i Pct&i,
-							     ObsList=26|27|28|29)
+					     ObsList=26|27|28|29)
 	  %end;
 
       /* SECONDARY COLUMN, RACE TOTALS TO 'ALL PARTICIPANTS' */
 	  %do i=1 %to 3;  /* OVER EACH FILE */
 	    %T0_SuppressSecondaryCol(data=Report_T1,
 	                             VarList=N&i Pct&i,
-							     ObsList=30|31|32|33|34|35|36)
+					     ObsList=30|31|32|33|34|35|36)
 	  %end;
 
       /* SECONDARY COLUMN, ETHNICITY TOTALS TO 'ALL PARTICIPANTS' */
 	  %do i=1 %to 3;  /* OVER EACH FILE */
 	    %T0_SuppressSecondaryCol(data=Report_T1,
 	                             VarList=N&i Pct&i,
-							     ObsList=37|38|39)
+					     ObsList=37|38|39)
 	  %end;
 
       /* SECONDARY COLUMN, INCOME TOTALS TO 'ALL PARTICIPANTS' */
 	  %do i=1 %to 3;  /* OVER EACH FILE */
 	    %T0_SuppressSecondaryCol(data=Report_T1,
 	                             VarList=N&i Pct&i,
-							     ObsList=45|46|37|48|49|50|51)
+					     ObsList=45|46|37|48|49|50|51)
 	  %end;
 
       /* SECONDARY COLUMN, NUMBER IN ECONOMIC UNIT TOTALS TO 'ALL PARTICIPANTS' */
 	  %do i=1 %to 3;  /* OVER EACH FILE */
 	    %T0_SuppressSecondaryCol(data=Report_T1,
 	                             VarList=N&i Pct&i,
-							     ObsList=52|53|54|55|56)
+					     ObsList=52|53|54|55|56)
 	  %end;
 
       /* SECONDARY COLUMN, NUMBER OF ASSIGNED NUTRISKS TOTALS TO 'ALL PARTICIPANTS' */
 	  %do i=1 %to 3;  /* OVER EACH FILE */
 	    %T0_SuppressSecondaryCol(data=Report_T1,
 	                             VarList=N&i Pct&i,
-							     ObsList=63|64|65|66|67)
+					     ObsList=63|64|65|66|67)
 	  %end;
 
     %end;
@@ -118,26 +118,26 @@
       %nobs(data=Report_Data)
 	  %do i=1 %to &nobs;
 	    %T0_SuppressSecondaryRow(data=Report_Data,
-	  	  				         VarList=N0 Pct0|N1 Pct1|N2 Pct2|N3 Pct3|N4 Pct4|N5 Pct5|N6 Pct6,
-						         Obs=&i)
+	  	  			     VarList=N0 Pct0|N1 Pct1|N2 Pct2|N3 Pct3|N4 Pct4|N5 Pct5|N6 Pct6,
+					     Obs=&i)
 	  %end;
 
       /* SECONDARY COLUMN CELL SUPPRESSION ON EVERY EVERY COLUMN FOR EACH FILE */
 	  %do i=0 %to 6;  /* OVER EACH COLUMN SET, NUMBER OF TRAINING CODES */
 	      /* FILE 1 */
 	      %T0_SuppressSecondaryCol(data=Report_Data,
-	  	  				           VarList=N&i Pct&i,
-						           ObsList=2|3|4|5|6)
+	  	  				 VarList=N&i Pct&i,
+						 ObsList=2|3|4|5|6)
 
 		  /* FILE 2 */
 	      %T0_SuppressSecondaryCol(data=Report_Data,
-	  	  				           VarList=N&i Pct&i,
-						           ObsList=8|9|10|11|12)
+	  	  				 VarList=N&i Pct&i,
+						 ObsList=8|9|10|11|12)
 
 		  /* FILE 3 */
 	      %T0_SuppressSecondaryCol(data=Report_Data,
-	  	  				           VarList=N&i Pct&i,
-						           ObsList=14|15|16|17|18)
+	  	  				 VarList=N&i Pct&i,
+						 ObsList=14|15|16|17|18)
 	  %end;    
 
       /* SECONDARY COLUMN SUPPRESSION MAY HAVE CREATED ROW WITH SINGLE
@@ -146,8 +146,8 @@
       %nobs(data=Report_Data)
 	  %do i=1 %to &nobs;
 	    %T0_SuppressSecondaryRow(data=Report_Data,
-	  	  				         VarList=N0 Pct0|N1 Pct1|N2 Pct2|N3 Pct3|N4 Pct4|N5 Pct5|N6 Pct6,
-						         Obs=&i)
+	  	  			     VarList=N0 Pct0|N1 Pct1|N2 Pct2|N3 Pct3|N4 Pct4|N5 Pct5|N6 Pct6,
+					     Obs=&i)
 	  %end;
 
 
@@ -161,27 +161,27 @@
       %T0_SuppressPrimary(data=Report8_12,
                           VarList=%do i=1 %to &numVar;
 	                                s&&var&i p&&var&i
-									 %if &i ^= &numVar %then |;
+						  %if &i ^= &numVar %then |;
 	                              %end;
-								)
+				  )
 
 
       /* SECONDARY COLUMN CELL SUPPRESSION ON EVERY EVERY COLUMN FOR EACH FILE */
 	  %do i=1 %to &numVar;  /* OVER EACH COLUMN SET -- TRAINING TYPES */
 	      /* FILE 1 */
 	      %T0_SuppressSecondaryCol(data=Report8_12,
-	  	  				           VarList=s&&var&i p&&var&i,
-						           ObsList=2|3|4|5|6)
+	  	  				 VarList=s&&var&i p&&var&i,
+						 ObsList=2|3|4|5|6)
 
 		  /* FILE 2 */
 	      %T0_SuppressSecondaryCol(data=Report8_12,
-	  	  				           VarList=s&&var&i p&&var&i,
-						           ObsList=8|9|10|11|12)
+	  	  				 VarList=s&&var&i p&&var&i,
+						 ObsList=8|9|10|11|12)
 
 		  /* FILE 3 */
 	      %T0_SuppressSecondaryCol(data=Report8_12,
-	  	  				           VarList=s&&var&i p&&var&i,
-						           ObsList=14|15|16|17|18)
+	  	  				 VarList=s&&var&i p&&var&i,
+						 ObsList=14|15|16|17|18)
 	  %end;    
     %end;
 
@@ -194,9 +194,9 @@
       %T0_SuppressPrimary(data=Report8_12,
                           VarList=%do i=1 %to &numVar;
 	                                s&&var&i p&&var&i
-									 %if &i ^= &numVar %then |;
+						  %if &i ^= &numVar %then |;
 	                              %end;
-								)
+				  )
 	%end;
 								
     /**************/
@@ -238,8 +238,8 @@
       %nobs(data=NRTop_Report)
 	  %do i=1 %to &nobs;
 	    %T0_SuppressSecondaryRow(data=NRTop_Report,  
-  						         VarList=Missing MissingPct|Small SmallPct|Medium MediumPct|Large LargePct,
-						         Obs=&i)
+  					     VarList=Missing MissingPct|Small SmallPct|Medium MediumPct|Large LargePct,
+					     Obs=&i)
 	  %end;
     %end;
  
@@ -255,8 +255,8 @@
       %nobs(data=NRTop_Report)
 	  %do i=1 %to &nobs;
 	    %T0_SuppressSecondaryRow(data=NRTop_Report,  
-  						         VarList=Urban UrbanPct|Rural RuralPct|Missing MissingPct,
-						         Obs=&i)
+  					     VarList=Urban UrbanPct|Rural RuralPct|Missing MissingPct,
+					     Obs=&i)
 	  %end;
     %end;
  
@@ -269,8 +269,8 @@
                           VarList=Local_Health_Department Local_Health_DepartmentPct|
                                   Health_Center Health_CenterPct|
                                   Non_Profit Non_ProfitPct|
-								  Other|OtherPct|
-								  Missing|MissingPct)
+					    Other|OtherPct|
+					    Missing|MissingPct)
 
       /* ROW CELL SUPPRESSION ON EVERY ROW */
       %nobs(data=NRTop_Report)
@@ -279,9 +279,9 @@
                           VarList=Local_Health_Department Local_Health_DepartmentPct|
                                   Health_Center Health_CenterPct|
                                   Non_Profit Non_ProfitPct|
-								  Other|OtherPct|
-								  Missing|MissingPct,
-                          Obs=&i)
+					    Other|OtherPct|
+					    Missing|MissingPct,
+                                  Obs=&i)
 	  %end;
 	%end;
 
@@ -293,10 +293,10 @@
       %T0_SuppressPrimary(data=Report_18,
                           VarList=s_AgeFlag p_AgeFlag|
                                   s_Nutrisk103_Flag p_Nutrisk103_Flag|
-								  s_NutriskHigh_Flag p_NutriskHigh_Flag|
-								  s_Milk_Flag p_Milk_Flag|
-								  s_TrainGroup2_Flag p_TrainGroup2_Flag|
-								  s_TrainGroup3_Flag p_TrainGroup3_Flag)
+					    s_NutriskHigh_Flag p_NutriskHigh_Flag|
+					    s_Milk_Flag p_Milk_Flag|
+					    s_TrainGroup2_Flag p_TrainGroup2_Flag|
+					    s_TrainGroup3_Flag p_TrainGroup3_Flag)
     %end;
 
  
@@ -308,11 +308,11 @@
       %T0_SuppressPrimary(data=Report_18,
                           VarList=s_AgeFlag p_AgeFlag|
                                   s_Nutrisk103_Flag p_Nutrisk103_Flag|
-								  s_NutriskHigh_Flag p_NutriskHigh_Flag|
-								  s_Milk_Flag p_Milk_Flag|
-								  s_ReducedMilk_Flag p_ReducedMilk_Flag|
-								  s_TrainGroup2_Flag p_TrainGroup2_Flag|
-								  s_TrainGroup3_Flag p_TrainGroup3_Flag)
+					    s_NutriskHigh_Flag p_NutriskHigh_Flag|
+					    s_Milk_Flag p_Milk_Flag|
+					    s_ReducedMilk_Flag p_ReducedMilk_Flag|
+					    s_TrainGroup2_Flag p_TrainGroup2_Flag|
+					    s_TrainGroup3_Flag p_TrainGroup3_Flag)
     %end;
  
     /**************/
@@ -332,8 +332,8 @@
       %T0_SuppressPrimary(data=T20_Report,
                           VarList=NParticipant|
                                   NTF_Amount_lbs PTF_Amount_lbs|
-								  NSB_Amount_qts PSB_Amount_qts|
-								  NML_Type_lactose PML_Type_lactose)
+				   	    NSB_Amount_qts PSB_Amount_qts|
+					    NML_Type_lactose PML_Type_lactose)
     %end;
  
     /**************/
@@ -343,7 +343,7 @@
     %do;
       %T0_SuppressPrimary(data=T21_Report,
                           VarList=NParticipant|
-								  NTrainRefFlag PTrainRefFlag)
+					    NTrainRefFlag PTrainRefFlag)
     %end;
  
     /**************/
@@ -353,7 +353,7 @@
     %do;
       %T0_SuppressPrimary(data=T22_Report,
                           VarList=NParticipant|
-								  NRefFlag PRefFlag)
+					    NRefFlag PRefFlag)
     %end;
  
     /**************/
@@ -363,7 +363,7 @@
     %do;
       %T0_SuppressPrimary(data=T23_Report,
                           VarList=NParticipant|
-								  NTrainGroupFlag PTrainGroupFlag)
+				    	    NTrainGroupFlag PTrainGroupFlag)
     %end;
  
     /**************/
@@ -373,7 +373,7 @@
     %do;
       %T0_SuppressPrimary(data=T24_Report,
                           VarList=NParticipant|
-								  NTrainRefFlag PTrainRefFlag)
+					    NTrainRefFlag PTrainRefFlag)
     %end;
 
   %end;  /* IF &SUPPRESSION=Y */
